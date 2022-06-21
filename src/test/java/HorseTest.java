@@ -111,17 +111,16 @@ public class HorseTest {
     }
 
     @Test
-    @DisplayName("Проверить, что метод возвращает ноль")
-    void getDistance1() {
+    @DisplayName("Проверить, что метод возвращает ноль если объект был создан с помощью конструктора с двумя параметрами")
+    void testGetDistance() {
         Horse horse = new Horse("a", 0);
-        assertEquals(0, horse.getSpeed());
+        assertEquals(0, horse.getDistance());
     }
 
     @Test
     @DisplayName("Проверить, что метод вызывает внутри метод getRandomDouble с параметрами 0.2 и 0.9.")
     public void testGetRandomDouble() {
         try (MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class)) {
-            horseMockedStatic.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(0.2);
             Horse horse = new Horse("a", speed, distance);
             horse.move();
             horseMockedStatic.verify(

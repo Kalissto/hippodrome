@@ -60,7 +60,7 @@ public class HippodromeTest {
     @Test
     void getWinner() {
         Horse actual;
-        Horse two;
+        Horse expected;
         List<Horse> horses = new ArrayList<>();
         horses.add(new Horse("a", 0, 1));
         horses.add(new Horse("б", 0, 3));
@@ -70,7 +70,7 @@ public class HippodromeTest {
                 .max(Comparator.comparing(Horse::getDistance))
                 .get();
 
-        two = horses.get(2);
-        assertEquals(two, actual);
+        expected = horses.get(2);
+        assertEquals(expected, actual);
     }
 }
